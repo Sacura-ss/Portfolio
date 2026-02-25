@@ -1,200 +1,437 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game Development Portfolio</title>
+    <title>Luibov Khoziainova | Game Developer Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0c0f;
+            color: #e1e9f0;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3 {
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #fff 0%, #a0b3cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #fff 0%, #9bb8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
         }
 
         header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
+            background: rgba(10, 12, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: #8e9eb5;
+            max-width: 600px;
+            margin: 1rem auto 0;
         }
 
         .container {
-            width: 60%;
-            margin: auto;
-            overflow: hidden;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
         }
 
         .project {
-            display: flex;
-            margin: 20px 0;
-            background: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            background: rgba(20, 25, 30, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project:hover {
+            border-color: rgba(100, 150, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .project:nth-child(even) {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .project:nth-child(even) .project-description {
+            order: 2;
+        }
+
+        .project:nth-child(even) .project-media {
+            order: 1;
         }
 
         .project-description {
-            flex: 1;
-            padding: 20px;
+            padding: 1rem;
         }
 
-        .project-gif {
-            flex: 1;
-            text-align: center;
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            color: #8e9eb5;
+            font-size: 0.95rem;
         }
 
-        .gif-wrapper {
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-meta i {
+            color: #5f7eb0;
+            font-style: normal;
+        }
+
+        .contributions {
+            margin: 2rem 0;
+            list-style: none;
+        }
+
+        .contributions li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #b8c7de;
+            font-size: 1.1rem;
+        }
+
+        .contributions li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5f7eb0;
+            font-size: 1.2rem;
+        }
+
+        .contributions strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(60, 100, 200, 0.1);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            border-radius: 2rem;
+            padding: 0.75rem 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .project-link:hover {
+            background: rgba(60, 100, 200, 0.2);
+            border-color: #5f7eb0;
+            transform: scale(1.05);
+        }
+
+        .project-media {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            flex: 1;
-            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
         }
 
-        img {
-            max-width: 100%;
-            border-radius: 5px;
-            max-width: 480px;
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .media-grid.single {
+            grid-template-columns: 1fr;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .media-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .media-item:hover {
+            border-color: rgba(100, 150, 255, 0.5);
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px -10px rgba(0, 100, 255, 0.4);
+        }
+
+        .media-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .project:last-child .media-grid.single {
+            max-width: 60%;
+        }
+        
+        .project:last-child .project-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #6c7a91;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #8e9eb5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links a:hover {
             color: #fff;
         }
 
+        .social-links a::before {
+            content: "→";
+            color: #5f7eb0;
+        }
+
+        @media (max-width: 1200px) {
+            .project, .project:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project:nth-child(even) .project-description,
+            .project:nth-child(even) .project-media {
+                order: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            .media-grid.single {
+                max-width: 100%;
+            }
+            
+            .project:last-child .media-grid.single {
+                max-width: 80%;
+            }
+        }
+
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                margin: auto;
+            .media-grid {
+                grid-template-columns: 1fr !important;
             }
 
             .project {
-                flex-direction: column;
+                padding: 1.5rem;
             }
 
-            .project-description,
-            .gif-wrapper {
-                width: 100%;
+            .container {
+                padding: 1rem;
             }
 
-            img {
+            .projects-grid {
+                gap: 3rem;
+            }
+
+            .contributions li {
+                font-size: 1rem;
+            }
+            
+            .project:last-child .media-grid.single {
                 max-width: 100%;
-                height: auto;
             }
+        }
 
-            .project-gif {
-                text-align: center;
-                width: 100%;
+        @media (min-width: 2000px) {
+            .container {
+                max-width: 1800px;
+            }
+            
+            .project {
+                grid-template-columns: 1fr 1.5fr;
             }
         }
     </style>
-
 </head>
 
 <body>
-
     <header>
-        <h1>Welcome to the portfolio of Luibov Khoziainova</h1>
-        <p>Explore my projects and see the games I've created!</p>
+        <h1>Luibov Khoziainova</h1>
+        <p>Game Developer specializing in gameplay mechanics, tools, and immersive experiences</p>
     </header>
 
     <div class="container">
-
-        <div class="project">
-            <div class="project-description">
-                <h2>Beat of the Gnomes</h2>
-                <p><strong>Genre:</strong> Rhythm-shooter</p>
-                <p><strong>Platform:</strong> PC</p>
-                <p><strong>Team:</strong> 9 people</p>
-                <p><strong>My contributions:</strong></p>
-                <ul>
-                    <li><strong>Train mechanics:</strong> Movement, spawning, interactions, sounds and VFX.</li>
-                    <li><strong>Save/load system with checkpoints.</strong></li>
-                    <li><strong>Cutscenes:</strong> Sprite animation, subtitles, voiceover sync.</li>
-                </ul>
-            </div>
-            <div class="gif-wrapper">
-                <div class="project-gif">
-                    <img src="content/bog0.gif" alt="Game trailer">
+        <div class="projects-grid">
+            <div class="project">
+                <div class="project-description">
+                    <h2>Beat of the Gnomes</h2>
+                    <div class="project-meta">
+                        <span><i>🎮</i> Rhythm-shooter</span>
+                        <span><i>💻</i> PC</span>
+                        <span><i>👥</i> Team of 9</span>
+                    </div>
+                    <ul class="contributions">
+                        <li><strong>Train mechanics:</strong> Movement, spawning, interactions, sounds and VFX.</li>
+                        <li><strong>Save/load system</strong> with checkpoints.</li>
+                        <li><strong>Cutscenes:</strong> Sprite animation, subtitles, voiceover sync.</li>
+                    </ul>
                 </div>
-                <div class="project-gif">
-                    <img src="content/bog1.gif" alt="Development process">
+                <div class="project-media">
+                    <div class="media-grid">
+                        <div class="media-item"><img src="content/bog0.gif" alt="Beat of the Gnomes gameplay"></div>
+                        <div class="media-item"><img src="content/bog1.gif" alt="Development process"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-description">
+                    <h2>Temporal Rift</h2>
+                    <div class="project-meta">
+                        <span><i>🎮</i> First-person platformer</span>
+                        <span><i>💻</i> PC</span>
+                        <span><i>👤</i> Solo Project</span>
+                    </div>
+                    <ul class="contributions">
+                        <li><strong>Level Generation:</strong> Algorithm building levels from templates.</li>
+                        <li><strong>Time Travel:</strong> Post-processing effects and template switching.</li>
+                        <li><strong>Character Movement:</strong> Jump, run, slide under obstacles, slope sliding.</li>
+                    </ul>
+                </div>
+                <div class="project-media">
+                    <div class="media-grid single">
+                        <div class="media-item"><img src="content/tr0.gif" alt="Temporal Rift gameplay"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-description">
+                    <h2>Abandoned Island</h2>
+                    <div class="project-meta">
+                        <span><i>🎮</i> RPG</span>
+                        <span><i>💻</i> PC</span>
+                        <span><i>👤</i> Solo Project</span>
+                    </div>
+                    <ul class="contributions">
+                        <li><strong>Game Mechanics:</strong> Core gameplay systems and interactions.</li>
+                        <li><strong>Water Shader:</strong> Custom material and shader.</li>
+                        <li><strong>Lighting & Camera:</strong> Scene setup and composition.</li>
+                        <li><strong>Environment Art:</strong> Terrain texturing and level decoration.</li>
+                    </ul>
+                </div>
+                <div class="project-media">
+                    <div class="media-grid single">
+                        <div class="media-item"><img src="content/ai0.gif" alt="Abandoned Island environment"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-description">
+                    <h2>Snake Multiplayer</h2>
+                    <div class="project-meta">
+                        <span><i>🎮</i> Arcade</span>
+                        <span><i>🌐</i> Web</span>
+                        <span><i>👤</i> Solo Project</span>
+                    </div>
+                    <ul class="contributions">
+                        <li><strong>Game Mechanics:</strong> Classic snake adapted for multiplayer.</li>
+                        <li><strong>Multiplayer:</strong> Real-time sync using Photon.</li>
+                    </ul>
+                    <a href="https://sacura-s.itch.io/multiplayer-snake" class="project-link" target="_blank">
+                        Play on itch.io →
+                    </a>
+                </div>
+                <div class="project-media">
+                    <div class="media-grid single">
+                        <div class="media-item"><img src="content/sm0.png" alt="Snake Multiplayer screenshot"></div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="project">
-            <div class="project-description">
-                <h2>Temporal Rift</h2>
-                <p><strong>Genre:</strong> First-person platformer</p>
-                <p><strong>Platform:</strong> PC</p>
-                <p><strong>Team:</strong> Solo Project</p>
-                <p><strong>My contributions:</strong></p>
-                <ul>
-                    <li><strong>Level Generation:</strong> Algorithm that builds levels from premade templates.</li>
-                    <li><strong>Time Travel:</strong> Post-processing effects and template switching.</li>
-                    <li><strong>Character Movement:</strong> Jump, run, slide under obstacles, and slide on slopes.</li>
-                </ul>
-            </div>
-            <div class="project-gif">
-                <img src="content/tr0.gif">
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-description">
-                <h2>Abandoned Island </h2>
-                <p><strong>Genre:</strong> RPG</p>
-                <p><strong>Platform:</strong> PC</p>
-                <p><strong>Team:</strong> Solo Project</p>
-                <p><strong>My contributions:</strong></p>
-                <ul>
-                    <li><strong>Game Mechanics:</strong> Core gameplay systems and interactions.</li>
-                    <li><strong>Water Shader:</strong> Custom material and shader.</li>
-                    <li><strong>Lighting & Camera:</strong> Scene setup and composition.</li>
-                    <li><strong>Environment Art:</strong> Terrain texturing and level decoration.</li>
-                </ul>
-            </div>
-            <div class="project-gif">
-                <img src="content/ai0.gif">
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-description">
-                <h2>Snake Multiplayer </h2>
-                <p><strong>Genre:</strong> Arcade</p>
-                <p><strong>Platform:</strong> Web</p>
-                <p><strong>Team:</strong> Solo Project</p>
-                <p><strong>Link:</strong> <a href="https://sacura-s.itch.io/multiplayer-snake">itch.io</a></p>
-                <p><strong>My contributions:</strong></p>
-                <ul>
-                    <li><strong>Game Mechanics:</strong> Classic snake gameplay adapted for multiplayer.</li>
-                    <li><strong>Multiplayer:</strong> Real-time sync using Photon.</li>
-                </ul>
-            </div>
-            <div class="project-gif">
-                <img src="content/sm0.png">
-            </div>
-        </div>
-
     </div>
 
     <footer>
-        <p>All photos and video materials belong to their owners and are used solely for demonstration purposes. Please
-            do not use them in commercial projects.</p>
-        <p>
-            <a href="https://www.linkedin.com/in/liubov-khoziainova-b1824a363" style="color: #fff;">LinkedIn</a> |
-            <a href="https://t.me/llu_ba" style="color: #fff;">Telegram</a>
-        </p>
+        <p>All materials belong to their respective owners and are used for demonstration purposes only. Please do not use in commercial projects.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/liubov-khoziainova-b1824a363">LinkedIn</a>
+            <a href="https://t.me/llu_ba">Telegram</a>
+        </div>
     </footer>
-
 </body>
-
 </html>
