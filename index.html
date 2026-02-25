@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +13,20 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
         header {
             background: #333;
             color: #fff;
             padding: 10px 0;
             text-align: center;
         }
+
         .container {
             width: 60%;
             margin: auto;
             overflow: hidden;
         }
+
         .project {
             display: flex;
             margin: 20px 0;
@@ -32,155 +36,165 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             align-items: center;
         }
+
         .project-description {
             flex: 1;
             padding: 20px;
         }
+
         .project-gif {
             flex: 1;
             text-align: center;
         }
+
         .gif-wrapper {
-    display: flex;          
-    flex-direction: column; 
-    gap: 10px;            
-    flex: 1;              
-    align-items: center;   
-}
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+            align-items: center;
+        }
+
         img {
             max-width: 100%;
             border-radius: 5px;
             max-width: 480px;
         }
+
         footer {
             text-align: center;
             padding: 20px;
             background: #333;
             color: #fff;
         }
-    @media (max-width: 768px) {
-    .container {
-        width: 95%;
-        margin: auto;
-    }
-    
-    .project {
-        flex-direction: column;
-    }
-    
-    .project-description, .gif-wrapper {
-        width: 100%;
-    }
-    
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .project-gif {
-        text-align: center;
-        width: 100%;
-    }
-}
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: auto;
+            }
+
+            .project {
+                flex-direction: column;
+            }
+
+            .project-description,
+            .gif-wrapper {
+                width: 100%;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .project-gif {
+                text-align: center;
+                width: 100%;
+            }
+        }
     </style>
 
 </head>
+
 <body>
 
-<header>
-    <h1>Welcome to the portfolio of Luibov Khoziainova</h1>
-    <p>Explore my projects and see the games I've created!</p>
-</header>
+    <header>
+        <h1>Welcome to the portfolio of Luibov Khoziainova</h1>
+        <p>Explore my projects and see the games I've created!</p>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <div class="project">
-        <div class="project-description">
-            <h2>Beat of the Gnomes</h2>
-            <p><strong>Genre:</strong> Rhythm-shooter</p>
-            <p><strong>Platform:</strong> PC</p>
-            <p><strong>Team:</strong> 9 people</p>
-            <p><strong>Contributions:</strong></p>
-            <ul>
-                <li>Train Mechanics: Logic for train movement and spawning, their interactions with the player and mobs, sounds, and visual effects.</li>
-                <li>Save system: Implementation of checkpoints for saving, loading checkpoints.</li>
-                <li>Cutscenes: Sprite animation, creating subtitles, synchronizing voiceovers and slides.</li>
-            </ul>
+        <div class="project">
+            <div class="project-description">
+                <h2>Beat of the Gnomes</h2>
+                <p><strong>Genre:</strong> Rhythm-shooter</p>
+                <p><strong>Platform:</strong> PC</p>
+                <p><strong>Team:</strong> 9 people</p>
+                <p><strong>My contributions:</strong></p>
+                <ul>
+                    <li><strong>Train mechanics:</strong> Movement, spawning, interactions, sounds and VFX.</li>
+                    <li><strong>Save/load system with checkpoints.</strong></li>
+                    <li><strong>Cutscenes:</strong> Sprite animation, subtitles, voiceover sync.</li>
+                </ul>
+            </div>
+            <div class="gif-wrapper">
+                <div class="project-gif">
+                    <img src="content/bog0.gif" alt="Game trailer">
+                </div>
+                <div class="project-gif">
+                    <img src="content/bog1.gif" alt="Development process">
+                </div>
+            </div>
         </div>
-       <div class="gif-wrapper">
-        <div class="project-gif">
-            <img src="content/bog0.gif" alt="Game trailer">
+
+        <div class="project">
+            <div class="project-description">
+                <h2>Temporal Rift</h2>
+                <p><strong>Genre:</strong> First-person platformer</p>
+                <p><strong>Platform:</strong> PC</p>
+                <p><strong>Team:</strong> Solo Project</p>
+                <p><strong>My contributions:</strong></p>
+                <ul>
+                    <li><strong>Level Generation:</strong> Algorithm that builds levels from premade templates.</li>
+                    <li><strong>Time Travel:</strong> Post-processing effects and template switching.</li>
+                    <li><strong>Character Movement:</strong> Jump, run, slide under obstacles, and slide on slopes.</li>
+                </ul>
+            </div>
+            <div class="project-gif">
+                <img src="content/tr0.gif">
+            </div>
         </div>
-        <div class="project-gif">
-            <img src="content/bog1.gif" alt="Development process">
+
+        <div class="project">
+            <div class="project-description">
+                <h2>Abandoned Island </h2>
+                <p><strong>Genre:</strong> RPG</p>
+                <p><strong>Platform:</strong> PC</p>
+                <p><strong>Team:</strong> Solo Project</p>
+                <p><strong>My contributions:</strong></p>
+                <ul>
+                    <li><strong>Game Mechanics:</strong> Core gameplay systems and interactions.</li>
+                    <li><strong>Water Shader:</strong> Custom material and shader.</li>
+                    <li><strong>Lighting & Camera:</strong> Scene setup and composition.</li>
+                    <li><strong>Environment Art:</strong> Terrain texturing and level decoration.</li>
+                </ul>
+            </div>
+            <div class="project-gif">
+                <img src="content/ai0.gif">
+            </div>
         </div>
+
+        <div class="project">
+            <div class="project-description">
+                <h2>Snake Multiplayer </h2>
+                <p><strong>Genre:</strong> Arcade</p>
+                <p><strong>Platform:</strong> Web</p>
+                <p><strong>Team:</strong> Solo Project</p>
+                <p><strong>Link:</strong> <a href="https://sacura-s.itch.io/multiplayer-snake">itch.io</a></p>
+                <p><strong>My contributions:</strong></p>
+                <ul>
+                    <li><strong>Game Mechanics:</strong> Classic snake gameplay adapted for multiplayer.</li>
+                    <li><strong>Multiplayer:</strong> Real-time sync using Photon.</li>
+                </ul>
+            </div>
+            <div class="project-gif">
+                <img src="content/sm0.png">
+            </div>
+        </div>
+
     </div>
-    </div>
 
-    <div class="project">
-        <div class="project-description">
-            <h2>Temporal Rift</h2>
-            <p><strong>Genre:</strong> First-person platformer</p>
-            <p><strong>Platform:</strong> PC</p>
-            <p><strong>Team:</strong> Solo Project</p>
-            <p><strong>Contributions:</strong></p>
-            <ul>
-                <li>Level Generation: Algorithm for generating levels from pre-created templates.</li>
-                <li>Time Travel Mechanics: Post-processing and template switching.</li>
-                <li>Character Movement: Slide under obstacles, jump, walk, run, slide on inclines.</li>
-            </ul>
-        </div>
-        <div class="project-gif">
-            <img src="content/tr0.gif">
-        </div>
-    </div>
-
-    <div class="project">
-        <div class="project-description">
-            <h2>Abandoned Island </h2>
-            <p><strong>Genre:</strong> RPG</p>
-            <p><strong>Platform:</strong> PC</p>
-            <p><strong>Team:</strong> Solo Project</p>
-            <p><strong>Contributions:</strong></p>
-            <ul>
-                <li>Game Mechanics</li>
-                <li>Water Material and Shader</li>
-                <li>Light and Camera Setup</li>
-                <li>Creating Terrain and applying textures, filling the level with models.</li>
-            </ul>
-        </div>
-        <div class="project-gif">
-            <img src="content/ai0.gif">
-        </div>
-    </div>
-
-    <div class="project">
-        <div class="project-description">
-            <h2>Snake Multiplayer </h2>
-            <p><strong>Genre:</strong> Arcade</p>
-            <p><strong>Platform:</strong> Web</p>
-            <p><strong>Team:</strong> Solo Project</p>
-            <p><strong>Link:</strong> <a href="https://sacura-s.itch.io/multiplayer-snake">itch.io</a></p>
-            <p><strong>Contributions:</strong></p>
-            <ul>
-                <li>Game Mechanics</li>
-                <li>Multiplayer with Photon</li>
-            </ul>
-        </div>
-        <div class="project-gif">
-            <img src="content/sm0.png">
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    <p>All photos and video materials belong to their owners and are used solely for demonstration purposes. Please do not use them in commercial projects.</p>
-    <p>
-        <a href="https://www.linkedin.com/in/liubov-khoziainova-b1824a363" style="color: #fff;">LinkedIn</a> |
-        <a href="https://t.me/llu_ba" style="color: #fff;">Telegram</a>
-    </p>
-</footer>
+    <footer>
+        <p>All photos and video materials belong to their owners and are used solely for demonstration purposes. Please
+            do not use them in commercial projects.</p>
+        <p>
+            <a href="https://www.linkedin.com/in/liubov-khoziainova-b1824a363" style="color: #fff;">LinkedIn</a> |
+            <a href="https://t.me/llu_ba" style="color: #fff;">Telegram</a>
+        </p>
+    </footer>
 
 </body>
+
 </html>
