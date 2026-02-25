@@ -30,7 +30,7 @@
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-             align-items: center;
+            align-items: center;
         }
         .project-description {
             flex: 1;
@@ -40,6 +40,13 @@
             flex: 1;
             text-align: center;
         }
+        .gif-wrapper {
+    display: flex;          
+    flex-direction: column; 
+    gap: 10px;            
+    flex: 1;              
+    align-items: center;   
+}
         img {
             max-width: 100%;
             border-radius: 5px;
@@ -75,12 +82,14 @@
                 <li>Cutscenes: Sprite animation, creating subtitles, synchronizing voiceovers and slides.</li>
             </ul>
         </div>
+       <div class="gif-wrapper">
         <div class="project-gif">
             <img src="content/bog0.gif" alt="Game trailer">
         </div>
         <div class="project-gif">
             <img src="content/bog1.gif" alt="Development process">
         </div>
+    </div>
     </div>
 
     <div class="project">
